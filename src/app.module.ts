@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { dataSourceOptions } from 'db/data-source';
+import { TaskModule } from './task/task.module';
 @Module({
   imports: [ConfigModule.forRoot({
     envFilePath: '.env',
@@ -13,7 +14,8 @@ import { dataSourceOptions } from 'db/data-source';
   }),
   TypeOrmModule.forRoot(dataSourceOptions),
   UsersModule,
-  AuthModule
+  AuthModule,
+  TaskModule
 ],
   controllers: [AppController],
   providers: [AppService],

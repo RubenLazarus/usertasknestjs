@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { TaskEntity } from './task.entity';
 
 @Entity('users')
 export class UserEntity {
@@ -16,6 +17,8 @@ export class UserEntity {
   passwordHash:string;
   @Column({nullable:true,type:String})
   profileImage:string;
+  @OneToMany(() => TaskEntity, (TaskEntity) => TaskEntity.assignedUser)
+  tasks: TaskEntity[]
   @Column()
   createdAt:Date;
   @Column({nullable:true,type:'time with time zone'})
