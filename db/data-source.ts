@@ -6,7 +6,7 @@ export const dataSourceOptions: DataSourceOptions = {
   port: 5432,
   password: 'u@123',
   username: 'postgres',
-  entities: [__dirname + '/**/*.entity{.ts,.js}'],
+  entities: ['dist/**/*.entity{.ts,.js}'],
   migrations: ['dist/db/migrations/*.js'],
   database: 'task',
   synchronize: false,

@@ -14,10 +14,10 @@ export class UserEntity {
   displayName:string;
   @Column()
   passwordHash:string;
-  @Column()
+  @Column({nullable:true,type:String})
   profileImage:string;
   @Column()
   createdAt:Date;
-  @Column()
+  @Column({nullable:true,type:'time with time zone'})
   updatedAt:Date;
 }
