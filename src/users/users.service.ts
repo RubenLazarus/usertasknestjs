@@ -26,4 +26,8 @@ export class UsersService {
     user.createdAt = new Date();
     return this.userRepository.save(user);
   }
+  getUserByEmail(email:string)
+  {
+    return this.userRepository.findOne({where:{email:email.toLocaleLowerCase()}})
+  }
 }

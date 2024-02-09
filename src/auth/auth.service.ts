@@ -16,7 +16,6 @@ export class AuthService {
     const payload = {
       email: data.email,
       _id: data._id,
-      mobileNo: data.mobileNo,
       firstName: data?.firstName,
       lastName: data?.lastName,
       displayName: data?.displayName
@@ -77,5 +76,24 @@ export class AuthService {
         HttpStatus.BAD_REQUEST,
       );
     }
+  }
+  async login(data: any) {
+    const user = await this.userService.getUserByEmail(data.username)
+    // const user = user1[0]
+    if (!(user  && (bcrypt.compareSync(
+      data?.password,
+      user?.passwordHash,
+    )))) {
+      return {
+        success: false,
+        message: "Username or password is invalid"
+      }
+    }
+    const accessToken = await this.createAccessToken(user)
+    return Object.assign(accessToken, {
+      success: true,
+      message: 'User exists',
+    });
+
   }
 }
