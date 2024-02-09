@@ -23,8 +23,10 @@ export class TaskEntity {
   createdAt:Date
   @Column()
   updatedAt:Date
-  @Column()
-  timeTaken:Date
+  @Column({nullable:true,type:Number})
+  timeTaken:Number
+  @Column({nullable:true,type:String})
+  showTimeTaken:String
   @Column({type:Boolean,default:true})
   isActive:Boolean
   @Column({type:Boolean,default:false})
