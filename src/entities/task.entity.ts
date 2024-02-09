@@ -25,5 +25,8 @@ export class TaskEntity {
   updatedAt:Date
   @Column()
   timeTaken:Date
-
+  @Column({type:Boolean,default:true})
+  isActive:Boolean
+  @Column({type:Boolean,default:false})
+  isDeleted:Boolean
 }

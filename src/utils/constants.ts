@@ -1,10 +1,12 @@
 export enum Routes {
     AUTH = 'auth',
-    USERS = 'users', 
+    USERS = 'users',
+    TASK="task" 
 }
 export enum Services {
     USERS = 'USERS_SERVICE', 
     AUTH = 'AUTH_SERVICE',
+    TASK="TASK_SERVICE"
 }
 export enum Prioriyt {
     LOW = 'Low',

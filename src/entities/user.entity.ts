@@ -23,4 +23,8 @@ export class UserEntity {
   createdAt:Date;
   @Column({nullable:true,type:'time with time zone'})
   updatedAt:Date;
+  @Column({type:Boolean,default:true})
+  isActive:Boolean
+  @Column({type:Boolean,default:false})
+  isDeleted:Boolean
 }
